@@ -1,5 +1,7 @@
 package ru.yandex.practicum.catsgram.model;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -10,6 +12,10 @@ import java.time.Instant;
 public class Post {
     private Long id;
     private long authorId;
+
+    @NotNull(message = "Описание не может быть null")
+    @NotBlank(message = "Описание не может быть пустым")
     private String description;
+
     private Instant postDate;
 }
